@@ -25,6 +25,7 @@ namespace ServiceCleaner
 
         private void GetEnvironments()
         {
+            Console.WriteLine(string.Format("\nGetting environments..."));
             var result = _discovery.ListEnvironments();
 
             if (result != null)
@@ -48,6 +49,7 @@ namespace ServiceCleaner
 
         private void DeleteEnvironment()
         {
+            Console.WriteLine(string.Format("\nDeleting {0}...", _environmentIdToDelete));
             if(!string.IsNullOrEmpty(_environmentIdToDelete))
             {
                 var result = _discovery.DeleteEnvironment(_environmentIdToDelete);

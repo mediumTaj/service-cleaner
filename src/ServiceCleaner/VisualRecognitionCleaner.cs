@@ -43,6 +43,7 @@ namespace ServiceCleaner
 
         public List<string> GetClassifiers()
         {
+            Console.WriteLine(string.Format("\nGetting classifiers..."));
             List<string> classifiers = new List<string>();
             var result = _visualRecognition.GetClassifiersBrief();
 

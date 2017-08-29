@@ -19,12 +19,14 @@ namespace ServiceCleaner
                     );
             _discoveryCleaner.Clean();
 
-            //VisualRecognitionCleaner _visualRecognitionCleaner = 
-            //    new VisualRecognitionCleaner(
-            //        vcapServices["visual_recognition"][0]["credentials"]["apikey"].ToString(),
-            //        vcapServices["visual_recognition"][0]["credentials"]["url"].ToString()
-            //        );
-            //_visualRecognitionCleaner.Clean();
+            VisualRecognitionCleaner _visualRecognitionCleaner =
+                new VisualRecognitionCleaner(
+                    vcapServices["visual_recognition"][0]["credentials"]["apikey"].ToString(),
+                    vcapServices["visual_recognition"][0]["credentials"]["url"].ToString()
+                    );
+            _visualRecognitionCleaner.Clean();
+
+            Console.WriteLine(string.Format("\nServices are clean."));
 
             Console.ReadKey();
         }

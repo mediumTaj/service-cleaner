@@ -12,12 +12,12 @@ namespace ServiceCleaner
             var fileContent = File.ReadAllText(environmentVariable);
             var vcapServices = JObject.Parse(fileContent);
 
-            DiscoveryCleaner _discoveryCleaner = 
-                new DiscoveryCleaner(
-                    vcapServices["discovery"][0]["credentials"]["username"].ToString(), 
-                    vcapServices["discovery"][0]["credentials"]["password"].ToString()
-                    );
-            _discoveryCleaner.Clean();
+            //DiscoveryCleaner _discoveryCleaner = 
+            //    new DiscoveryCleaner(
+            //        vcapServices["discovery"][0]["credentials"]["username"].ToString(), 
+            //        vcapServices["discovery"][0]["credentials"]["password"].ToString()
+            //        );
+            //_discoveryCleaner.Clean();
 
             //VisualRecognitionCleaner _visualRecognitionCleaner = 
             //    new VisualRecognitionCleaner(
@@ -25,6 +25,13 @@ namespace ServiceCleaner
             //        vcapServices["visual_recognition"][0]["credentials"]["url"].ToString()
             //        );
             //_visualRecognitionCleaner.Clean();
+
+            SpeechToTextCleaner _speechToTextCleaner =
+                new SpeechToTextCleaner(
+                    vcapServices["speech_to_text"][0]["credentials"]["username"].ToString(),
+                    vcapServices["speech_to_text"][0]["credentials"]["password"].ToString()
+                    );
+            _speechToTextCleaner.Clean();
 
             Console.ReadKey();
         }

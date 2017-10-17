@@ -19,12 +19,19 @@ namespace ServiceCleaner
             //        );
             //_discoveryCleaner.Clean();
 
-            //VisualRecognitionCleaner _visualRecognitionCleaner = 
-            //    new VisualRecognitionCleaner(
-            //        vcapServices["visual_recognition"][0]["credentials"]["apikey"].ToString(),
-            //        vcapServices["visual_recognition"][0]["credentials"]["url"].ToString()
-            //        );
-            //_visualRecognitionCleaner.Clean();
+            LanguageTranslatorCleaner _LanguageTranslatorCleaner =
+                new LanguageTranslatorCleaner(
+                    vcapServices["language_translator"][0]["credentials"]["username"].ToString(),
+                    vcapServices["language_translator"][0]["credentials"]["password"].ToString()
+                    );
+            _LanguageTranslatorCleaner.Clean();
+
+            VisualRecognitionCleaner _visualRecognitionCleaner =
+                new VisualRecognitionCleaner(
+                    vcapServices["visual_recognition"][0]["credentials"]["apikey"].ToString(),
+                    vcapServices["visual_recognition"][0]["credentials"]["url"].ToString()
+                    );
+            _visualRecognitionCleaner.Clean();
 
             SpeechToTextCleaner _speechToTextCleaner =
                 new SpeechToTextCleaner(

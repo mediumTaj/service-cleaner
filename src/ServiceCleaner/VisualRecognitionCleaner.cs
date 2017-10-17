@@ -11,6 +11,7 @@ namespace ServiceCleaner
         public VisualRecognitionCleaner(string apikey, string url)
         {
             _visualRecognition = new VisualRecognitionService(apikey, url);
+            
         }
 
         public void Clean()

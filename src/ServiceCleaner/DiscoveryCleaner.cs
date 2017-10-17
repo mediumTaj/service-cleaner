@@ -12,7 +12,7 @@ namespace ServiceCleaner
 
         public DiscoveryCleaner(string username, string password)
         {
-            _discovery = new DiscoveryService(username, password, DiscoveryService.DISCOVERY_VERSION_DATE_2016_12_01);
+            _discovery = new DiscoveryService(username, password, "2017-09-01");
         }
 
         public void Clean()

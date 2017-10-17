@@ -35,7 +35,7 @@ namespace ServiceCleaner
             }
             else
             {
-                Console.WriteLine("There are no customizations to delete!");
+                Console.WriteLine("\nThere are no customizations to delete!");
             }
 
             Console.WriteLine(string.Format("\nClean Speech to Text complete"));
@@ -89,7 +89,7 @@ namespace ServiceCleaner
 
         private bool shouldDelete(Customization customization)
         {
-            return customizationNamesToDelete.Contains(customization.Name);
+            return customizationNamesToDelete.Contains(customization.Name) && customization.Status != "pending";
         }
     }
 }

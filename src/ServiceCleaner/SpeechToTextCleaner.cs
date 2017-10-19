@@ -11,7 +11,7 @@ namespace ServiceCleaner
     public class SpeechToTextCleaner
     {
         private SpeechToTextService _speechToText;
-        private List<string> customizationNamesToDelete = new List<string>() { "model_test", "unity-test-customization", "java-sdk-temporary" };
+        private List<string> _customizationNamesToDelete = new List<string>() { "model_test", "unity-test-customization", "java-sdk-temporary" };
 
         public SpeechToTextCleaner(string username, string password)
         {
@@ -30,7 +30,7 @@ namespace ServiceCleaner
                 {
                     string customizationToDelete = customizationsToDelete[i];
                     if (DeleteCustomization(customizationToDelete))
-                        customizationNamesToDelete.Remove(customizationToDelete);
+                        _customizationNamesToDelete.Remove(customizationToDelete);
                 }
             }
             else
@@ -89,7 +89,7 @@ namespace ServiceCleaner
 
         private bool shouldDelete(Customization customization)
         {
-            return customizationNamesToDelete.Contains(customization.Name) && customization.Status != "pending";
+            return _customizationNamesToDelete.Contains(customization.Name) && customization.Status != "pending";
         }
     }
 }

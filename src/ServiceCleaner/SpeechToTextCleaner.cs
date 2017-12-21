@@ -41,6 +41,8 @@ namespace ServiceCleaner
             Console.WriteLine(string.Format("\nClean Speech to Text complete"));
         }
 
+
+
         private List<string> GetCustomizations()
         {
             var result = _speechToText.ListCustomModels();
